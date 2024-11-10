@@ -36,7 +36,7 @@ async def update_user(user_id: int,
         edit_user = users[user_id - 1]
         edit_user.username = username
         edit_user.age = age
-        return f"User {user_id} has been updated"
+        return f"User {edit_user} has been updated"
     except:
         raise HTTPException(status_code=404, detail="User was not found")
 
@@ -45,6 +45,6 @@ async def update_user(user_id: int,
 async def deleted_user(user_id: int) -> str:
     try:
         users.pop(user_id - 1)
-        return f"User {user_id} has been deleted"
+        return f"User {users} has been deleted"
     except IndexError:
         raise HTTPException(status_code=404, detail="User was not found")
